@@ -49,7 +49,6 @@ def heapCheck(data):
                     if data[index] < data[right_son]:
                         aux = 1
                         heapDo(data, index)
-        print(data)
         if aux == 0:
             heap_condition = True
 
