@@ -1,6 +1,11 @@
+def left_right_son(father_index):
+    left_son = ((father_index + 1) * 2) - 1
+    right_son = ((father_index + 1) * 2)
+    return left_son, right_son
+
+
 def heapDo(data, index):
-    left_son = ((index + 1) * 2) - 1
-    right_son = ((index + 1) * 2)
+    left_son, right_son = left_right_son(index)
     last_son = len(data)
     if left_son < last_son and right_son < last_son:
         if data[index] < data[left_son] or data[index] < data[right_son]:
@@ -27,8 +32,7 @@ def heapCheck(data):
     while not heap_condition:
         aux = 0
         for index in range(0, last_son//2):
-            left_son = ((index + 1) * 2) - 1
-            right_son = ((index + 1) * 2)
+            left_son, right_son = left_right_son(index)
             if left_son < last_son and right_son < last_son:
                 if data[index] < data[left_son]:
                     aux = 1
@@ -56,7 +60,5 @@ def heapSort(data):
 
 
 input = [25, 40, 55, 20, 44, 35, 38, 99, 10, 65, 50]
-input = [65, 55, 40, 50, 35, 38, 20, 10, 44, 25]
-input = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 result = heapSort(input)
 print(result)
