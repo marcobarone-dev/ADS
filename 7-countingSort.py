@@ -20,6 +20,6 @@ def countingSort(data, start_range, end_range):
     return data_aux
 
 
-input = [5, 4, 7, 10, 8, 9, 2, 1, 3, 6]
+input = [5, 4, 7, 0, 8, 9, 2, 1, 3, 6]
 result = countingSort(input, min(input), max(input))
 print(result)
