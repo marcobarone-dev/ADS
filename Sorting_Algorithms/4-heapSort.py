@@ -4,7 +4,7 @@ def left_right_son(father_index):
     return left_son, right_son
 
 
-def heapDo(data, index):
+def heap_do(data, index):
     left_son, right_son = left_right_son(index)
     last_son = len(data)
     if left_son < last_son and right_son < last_son:
@@ -13,20 +13,20 @@ def heapDo(data, index):
                 data[index], data[left_son] = data[left_son], data[index]
             else:
                 data[index], data[right_son] = data[right_son], data[index]
-        heapDo(data, left_son + 1)
-        heapDo(data, right_son + 1)
+        heap_do(data, left_son + 1)
+        heap_do(data, right_son + 1)
     else:
         if left_son < last_son:
             if data[index] < data[left_son]:
                 data[index], data[left_son] = data[left_son], data[index]
-            heapDo(data, left_son + 1)
+            heap_do(data, left_son + 1)
         elif right_son < last_son:
             if data[index] < data[right_son]:
                 data[index], data[right_son] = data[right_son], data[index]
-            heapDo(data, right_son + 1)
+            heap_do(data, right_son + 1)
 
 
-def heapCheck(data):
+def heap_check(data):
     heap_condition = False
     last_son = len(data)
     while not heap_condition:
@@ -36,25 +36,25 @@ def heapCheck(data):
             if left_son < last_son and right_son < last_son:
                 if data[index] < data[left_son]:
                     aux = 1
-                    heapDo(data, index)
+                    heap_do(data, index)
                 elif data[index] < data[right_son]:
                     aux = 1
-                    heapDo(data, index)
+                    heap_do(data, index)
             else:
                 if left_son < last_son:
                     if data[index] < data[left_son]:
                         aux = 1
-                        heapDo(data, index)
+                        heap_do(data, index)
                 elif right_son < last_son:
                     if data[index] < data[right_son]:
                         aux = 1
-                        heapDo(data, index)
+                        heap_do(data, index)
         if aux == 0:
             heap_condition = True
 
 
 def heapSort(data):
-    heapCheck(data)
+    heap_check(data)
     return data
 
 
